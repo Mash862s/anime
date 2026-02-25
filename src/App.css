@@ -1,0 +1,9 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 120rem;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: var(--bg-app);
+}
