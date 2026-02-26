@@ -58,6 +58,7 @@
   font-size: 3rem;
   font-weight: 500;
   margin-top: 1rem;
+  margin-bottom: 100%;
   animation: fadeInOut 2s ease-in-out infinite;
 }
 

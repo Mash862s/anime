@@ -1,5 +1,5 @@
-import type { TraceResult } from "../App";
 import { getTime } from "../func/getTime";
+import type { TraceResult } from "../Types/types";
 import cl from "./Card.module.css";
 
 const Card = ({ card }: { card: TraceResult }) => {
@@ -23,6 +23,12 @@ const Card = ({ card }: { card: TraceResult }) => {
         <span style={{ fontSize: "2rem", color: "red" }}>
           {Math.floor(card.similarity * 100)} %
         </span>
+      </div>
+      <div>
+        Посмотреть момент:{" "}
+        <button>
+          <a href={card.video}>Смотреть</a>
+        </button>
       </div>
     </div>
   );
