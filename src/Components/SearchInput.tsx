@@ -1,6 +1,8 @@
 import { useState, type ChangeEvent } from "react";
 import cl from "./SearchInput.module.css";
-import type { TraceResult } from "../App";
+import type { TraceResult } from "../Types/types";
+import CustomInput from "../Ui/Inputs/CustomInput";
+import CustomBtn from "../Ui/Buttons/CustomBtn";
 
 interface SearchInputProps {
   getData: (inputValue: string) => Promise<TraceResult[]>;
@@ -18,22 +20,17 @@ const SearchInput = ({ getData }: SearchInputProps) => {
   };
 
   return (
-    <main className={cl.main}>
+    <div className={cl.main}>
       <h1 className={cl.title}>Для поиска аниме вставьте ссылку!</h1>
       <div className={cl.heroArea}>
-        <input
-          className={cl.searchInput}
-          onChange={getInputValue}
-          type="text"
-          name=""
-          id=""
-          placeholder="Ваша ссылка"
+        <CustomInput
+          getInputValue={getInputValue}
+          placeholder="Вставьте ссылку"
         />
-        <button onClick={handleSearch} className={cl.btn}>
-          Найти
-        </button>
+        <CustomBtn handleSearch={handleSearch}>Найти</CustomBtn>
       </div>
-    </main>
+      <CustomBtn style={{ marginTop: "2rem" }}>Загрузите картинку</CustomBtn>
+    </div>
   );
 };
 

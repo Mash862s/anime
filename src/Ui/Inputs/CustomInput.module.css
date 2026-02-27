@@ -1,0 +1,19 @@
+.customInput {
+  width: 40rem;
+  padding: 1rem;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  border-radius: 2rem;
+  font-size: 2rem;
+  transition: all 0.2s ease;
+}
+
+.customInput:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+  box-shadow: var(--input-shadow-focus);
+}
+.customInput::placeholder {
+  color: var(--input-placeholder);
+}

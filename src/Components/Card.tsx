@@ -1,5 +1,6 @@
 import { getTime } from "../func/getTime";
 import type { TraceResult } from "../Types/types";
+import CustomBtn from "../Ui/Buttons/CustomBtn";
 import cl from "./Card.module.css";
 
 const Card = ({ card }: { card: TraceResult }) => {
@@ -24,11 +25,11 @@ const Card = ({ card }: { card: TraceResult }) => {
           {Math.floor(card.similarity * 100)} %
         </span>
       </div>
-      <div>
+      <div className={cl.cardWatch}>
         Посмотреть момент:{" "}
-        <button>
+        <CustomBtn>
           <a href={card.video}>Смотреть</a>
-        </button>
+        </CustomBtn>
       </div>
     </div>
   );

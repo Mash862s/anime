@@ -1,0 +1,15 @@
+.btn {
+  padding: 1rem 1rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  transition: all 0.2s ease;
+}
+
+.btn :hover {
+  background-color: var(--btn-primary-hover-bg);
+  box-shadow: var(--btn-primary-hover-shadow);
+}
