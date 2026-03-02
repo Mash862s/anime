@@ -12,6 +12,7 @@ interface MainProps {
   data: TraceResult[];
   selectedSort: string;
   setData: (data: TraceResult[]) => void;
+  setModal: (value: boolean) => void;
 }
 
 const Main = ({
@@ -20,6 +21,7 @@ const Main = ({
   setData,
   data,
   selectedSort,
+  setModal,
 }: MainProps) => {
   const myOptions = [
     { value: "filename", name: "📝По названию" },
@@ -38,7 +40,7 @@ const Main = ({
   };
   return (
     <main>
-      <SearchInput getData={getDataCards} />
+      <SearchInput setModal={setModal} getData={getDataCards} />
       {isLoading ? null : (
         <MySelect
           defaultValue="Сортировка"

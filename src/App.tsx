@@ -4,14 +4,16 @@ import Header from "./Components/Header";
 import type { TraceResult } from "./Types/types";
 import { getDataCards } from "./func/getDataCards";
 import Main from "./Components/Main";
+import Modal from "./Ui/Modal/Modal";
+import CustomInput from "./Ui/Inputs/CustomInput";
+import CustomBtn from "./Ui/Buttons/CustomBtn";
 
 const App = () => {
   const [data, setData] = useState<TraceResult[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const fetchedRef = useRef(false); // ← флаг для проверки была ли вызвана функция getData
   const [selectedSort, setSelectedSort] = useState<string>("");
-
-  const [counter, setCounter] = useState<number>(0);
+  const [modal, setModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (fetchedRef.current) {
@@ -28,22 +30,29 @@ const App = () => {
     preLoad();
   }, []);
 
+  const closeModal = () => {
+    console.log("modal");
+    setModal(false);
+  };
+
+  const openModal = () => {
+    setModal(true);
+  };
+
   return (
     <div className="app">
+      <Modal visible={modal} setVisible={setModal}>
+        <CustomInput placeholder="Вставьте ссылку!" />
+        <CustomBtn onClick={closeModal}>Закрыть</CustomBtn>
+      </Modal>
       <Header />
-      {
-        <div>
-          <h1 style={{ fontSize: "4rem" }}>{counter}</h1>
-          <button onClick={() => setCounter(counter + 1)}>test</button>
-        </div>
-      }
-
       <Main
         isLoading={isLoading}
         data={data}
         selectedSort={selectedSort}
         setData={setData}
         setSelectedSort={setSelectedSort}
+        setModal={openModal}
       />
     </div>
   );

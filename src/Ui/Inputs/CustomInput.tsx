@@ -3,7 +3,7 @@ const CustomInput = ({
   getInputValue,
   placeholder,
 }: {
-  getInputValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  getInputValue?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
 }) => {
   return (

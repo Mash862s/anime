@@ -6,9 +6,10 @@ import CustomBtn from "../Ui/Buttons/CustomBtn";
 
 interface SearchInputProps {
   getData: (inputValue: string) => Promise<TraceResult[]>;
+  setModal: (value: boolean) => void;
 }
 
-const SearchInput = ({ getData }: SearchInputProps) => {
+const SearchInput = ({ getData, setModal }: SearchInputProps) => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const getInputValue = (event: ChangeEvent<HTMLInputElement>) => {
@@ -19,6 +20,10 @@ const SearchInput = ({ getData }: SearchInputProps) => {
     getData(inputValue);
   };
 
+  const openModal = () => {
+    setModal(true);
+  };
+
   return (
     <div className={cl.main}>
       <h1 className={cl.title}>Для поиска аниме вставьте ссылку!</h1>
@@ -27,9 +32,11 @@ const SearchInput = ({ getData }: SearchInputProps) => {
           getInputValue={getInputValue}
           placeholder="Вставьте ссылку"
         />
-        <CustomBtn handleSearch={handleSearch}>Найти</CustomBtn>
+        <CustomBtn onClick={handleSearch}>Найти</CustomBtn>
       </div>
-      <CustomBtn style={{ marginTop: "2rem" }}>Загрузите картинку</CustomBtn>
+      <CustomBtn onClick={openModal} style={{ marginTop: "2rem" }}>
+        Загрузите картинку
+      </CustomBtn>
     </div>
   );
 };

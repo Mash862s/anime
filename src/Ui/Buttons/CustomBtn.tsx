@@ -6,13 +6,9 @@ interface CustomBtnProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   handleSearch?: () => void;
 }
 
-const CustomBtn: FC<CustomBtnProps> = ({
-  handleSearch,
-  children,
-  ...props
-}) => {
+const CustomBtn: FC<CustomBtnProps> = ({ children, ...props }) => {
   return (
-    <button {...props} onClick={handleSearch} className={cl.btn}>
+    <button {...props} className={cl.btn}>
       {children}
     </button>
   );
