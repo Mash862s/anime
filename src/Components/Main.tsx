@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { getDataCards } from "../func/getDataCards";
 import type { TraceResult } from "../Types/types";
 import MySelect from "../Ui/Select/MySelect";
@@ -59,4 +58,4 @@ const Main = ({
   );
 };
 
-export default memo(Main);
+export default Main;
